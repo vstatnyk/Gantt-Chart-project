@@ -1,14 +1,14 @@
 const URL =
-  "https://script.google.com/macros/s/AKfycbz5TUz7wei-0Wafq7y3QdFQcdI_7Pkvx6HLf4N4FGi1f-qInNzhhZkOQYI2p0mQu5A/exec";
+  "https://script.google.com/macros/s/AKfycbx3-kKwOrpL1Q8shM0IZKzY-pX6HFdf561rriDu8YBePMavJHH0D1JjuV4D6Uo7WRo/exec";
 
 async function getResults(id) {
   console.log(URL + "?id=" + String(id));
   const get = await fetch(URL + "?id=" + String(id)).then((res) => res.json());
   // console.log(get);
   let rows = [];
-
+  // 1OeKWYsRYCSFW1CfmBu-bIJr7Pbz65THjYPLA22NMSVE
   for (i in get) {
-    // console.log(get[i]);
+    console.log(get[i]);
     for (j in get[i]) {
       // console.log(get[i][j]);
       start = splitDate(get[i][j]["start"]);
@@ -20,9 +20,10 @@ async function getResults(id) {
       }
       // console.log(end);
       // aniticipatedEnd = splitDate(get[i][j]["aniticipatedEnd"]);
+
       rows.push([
         i + j,
-        get[i][j]["name"],
+        get[i][j]["name"] + "\n Status: " + get[i][j]["status"],
         i,
         new Date(Number(start[0]), Number(start[1]), Number(start[2])),
         new Date(Number(end[0]), Number(end[1]), Number(end[2])),
@@ -59,6 +60,7 @@ function drawChart(rawData) {
   data.addColumn("number", "Duration");
   data.addColumn("number", "Percent Complete");
   data.addColumn("string", "Dependencies");
+  // data.addColumn("string", "Status");
 
   data.addRows(rawData);
 
