@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>testing</title>
+  <title>Project Planner Gantt Chart</title>
   <script src="script.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="module">
 
     google.charts.load("current", { packages: ["gantt"] });
-    google.charts.setOnLoadCallback(drawChart);
-    console.log("hello");
-    var data = await getResults();
-    console.log(data);
-    
-    // setTimeout(function(){
-      drawChart(data) 
-// }, 6000);
 
-      // console.log(splitDate("2023-09-18T07:00:00.000Z"))
-    
 
-    
+
   </script>
 </head>
+
 <body>
+  <h1>Project Planner Gantt Chart</h1>
+  <input type="text" id="sheet_id">
+  <button onclick="initiateProcess()">Draw Chart</button>
   <div id="chart_div"></div>
+  <div>
+    <h2>Instruction Manual</h2>
+    <h3>prerequisites</h3>
+    <br>
+    1. The project planner Google Doc must be shared with w1792943@apps.losrios.edu
+    <br>
+    2. Please use this sample planner as a reference when creating a new planner, as the scrip is tailored to this
+    format.
+    <br>
+    <a href="https://docs.google.com/spreadsheets/d/1OeKWYsRYCSFW1CfmBu-bIJr7Pbz65THjYPLA22NMSVE" target="_blank">Sample
+      Planner</a>
+    <br>
+    <br>
+    <br>
+    <h3>How to use</h3>
+    please enter the sheet id of the project planner in the text box above and click the "Draw Chart" button.
+    <br>
+    wait for a couple of seconds as the request takes time
+  </div>
 </body>
+<!-- <footer style="display: flex; bottom:0;
+position: fixed;">This project was created by: Vlad Statnyk (vlad.statnyk@gmail.com)</footer> -->
+
 </html>
-
-
-
